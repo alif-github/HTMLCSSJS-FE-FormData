@@ -25,6 +25,10 @@ function handleButton() {
 		}else{
 			alert("Data Harus Terisi");
 		}
+	} else {
+		//tidak submit
+		updateData(button.getAttribute("data-type"));
+		// console.log(button.getAttribute("data-type"));
 	}	
 }
 
@@ -143,7 +147,7 @@ showData = () => {
 					Edit
 				</button>
 				<button class="buttondelete" type="button" onclick="deleteClicked(${person.id})">
-					delete
+					Delete
 				</button>
 			</td>
 		<tr>	
@@ -172,7 +176,9 @@ editClicked = (id) => {
 	});
 
 	nama.value = people[personUpdated].nama;
-	umur.value = people[personUpdated].umur;
+	tempatLahir.value = people[personUpdated].tempatLahir;
+	ttl.value = people[personUpdated].ttl;
+	alamat.value = people[personUpdated].alamat;
 
 	btn.innerHTML = "Update";
 	btn.setAttribute("data-type",personUpdated);
@@ -181,24 +187,63 @@ editClicked = (id) => {
 
 updateData = (id) => {
 
+	var today = new Date();
+		var birthday = new Date(ttl.value);
+		var year = 0;
+		if (today.getMonth() < birthday.getMonth()) {
+			year = 1;
+		} else if ((today.getMonth() == birthday.getMonth()) && today.getDate() < birthday.getDate()) {
+			year = 1;
+		}
+		var age = today.getFullYear() - birthday.getFullYear() - year;
+ 
+		if(age < 0){
+			age = 0;
+        }
+    var checkedhobby ="";
+    for(var i = 0; hobby[i]; i++){
+        if(hobby[i].checked){
+            checkedhobby = checkedhobby + hobby[i].value + ",";
+        }
+    }
+
+    var checkedgender = null;
+    length = gender.length;
+    for (var i = 0; i < length; i++) {
+        if (gender[i].checked) {
+          // do whatever you want with the checked radio
+          checkedgender = gender[i].value;
+          // only one radio can be logically checked, don't check the rest
+          break;
+        }
+    }
+
 	let orang = {
 			id : people[id].id,
 			nama : nama.value,
-			umur : umur.value
-		};
+			tempatLahir: tempatLahir.value,
+        	tanggal: ttl.value,
+        	ttl: age,
+        	gender: checkedgender,
+        	kesukaan: checkedhobby,
+        	agama: agama.value,
+			alamat: alamat.value
+	};
 
 	people.splice(id, 1, orang);// orang , 1, 
+	btn.removeAttribute("data-type");
+	btn.innerHTML ="Submit";
 	showData();
 	
 
 	nama.value="";
-	umur.value="";
+    tempatLahir.value="";
+	ttl.value="";
+    alamat.value="";
 
 	// // nama.value = personEdited.nama;
 	// // umur.value = personEdited.umur;
 	// // id.value = personEdited.id;
 
 	// btn.innerHTML = "Update";
-	btn.removeAttribute("data-type");
-	btn.innerHTML ="Submit";
 }

@@ -47,6 +47,7 @@
             <div class="field">
                 <label for="agama">Agama :</label>
                 <select name="agama" id="agama">
+                    <option value="-">-</option>
                     <option value="Islam">Islam</option>
                     <option value="Kristen Protestan">Kristen Protestan</option>
                     <option value="Hindu">Hindu</option>
@@ -64,7 +65,7 @@
         </div>
         <div class="table">
             <table id="customers" cellpadding="2" cellspacing="0" border="1">
-                <th class="tNumber">No</th>
+                <th class="tNumber">ID</th>
                 <th class="tText">Nama</th>
                 <th class="tText">Tempat Lahir</th>
                 <th class="tNumber">Umur</th>
@@ -73,7 +74,7 @@
                 <th class="tText">Agama</th>
                 <th class="tText">Alamat</th>
                 <th class="tAction">Action</th>
-                <tbody id="bodyTable"></tbody>
+                <tbody class="bodyFillTable" id="bodyTable"></tbody>
             </table>
         </div>
 	</div>
