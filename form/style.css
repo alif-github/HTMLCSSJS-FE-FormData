@@ -1,0 +1,67 @@
+body {
+    padding: 30px;
+    background-image: url(https://www.99.co/blog/indonesia/wp-content/uploads/2017/11/s_un_studio_projectsunder_embargo_temporarily2014_wasl_tower_dubaimaterialrender-890335057.jpgmediaclass-background-xl.07f7adb8a95599dcb70557da25aa6351c3fd0c58.jpg);
+    background-size: cover;
+}
+
+.form {
+    display: float;
+    float: left;
+    margin-left: 20px ;
+    width: 30%;
+}
+
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 65%; 
+    display: float;
+    float: right;
+    margin-right: 20px ;   
+}
+
+#customers td, #customers th {
+    border: 1px solid rgb(17, 17, 17);
+    padding: 6px;
+}
+
+#customers tr{
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+input[type=text],input[type=date] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}

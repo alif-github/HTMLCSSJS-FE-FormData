@@ -124,7 +124,7 @@ input = () => {
     alamat.value="";
 }
 
-function showData() {
+showData = () => {
 	hasil.innerHTML = '';
 	console.log(people);
 	people.forEach(person => {
@@ -151,7 +151,7 @@ function showData() {
 	});
 }
 
-function deleteClicked(id) {
+deleteClicked = (id) => {
 	const person = people.find(function(person){
 		return person.id === id
 	})
@@ -164,7 +164,7 @@ function deleteClicked(id) {
 	showData();
 }
 
-function editClicked(id) {
+editClicked = (id) => {
 	
 
 	const personUpdated = people.findIndex(person =>{
@@ -179,7 +179,7 @@ function editClicked(id) {
 	
 }
 
-function updateData(id){
+updateData = (id) => {
 
 	let orang = {
 			id : people[id].id,
