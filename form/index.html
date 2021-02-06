@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    body {
+        padding: 30px;
+        background-image: url(https://www.99.co/blog/indonesia/wp-content/uploads/2017/11/s_un_studio_projectsunder_embargo_temporarily2014_wasl_tower_dubaimaterialrender-890335057.jpgmediaclass-background-xl.07f7adb8a95599dcb70557da25aa6351c3fd0c58.jpg);
+        background-size: cover;
+    }
+
+    .form {
+        display: float;
+        float: left;
+        margin-left: 20px ;
+        width: 30%;
+    }
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 65%; 
+        display: float;
+        float: right;
+        margin-right: 20px ;   
+    }
+
+    #customers td, #customers th {
+        border: 1px solid rgb(17, 17, 17);
+        padding: 6px;
+    }
+
+    #customers tr{
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    input[type=text],input[type=date] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    </style>
+	<title>Form Validation JavaScript</title>
+	<!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+	<script type="text/javascript" src="index.js" defer></script>
+</head>
+<body class="body">
+	<div class="container">
+        <div>
+            <center>
+            <h1>DATA MASYARAKAT PENGAJIAN</h1>
+            </center>
+            <hr>
+        </div>
+		<div class="form">
+			<div class="field">
+				<label class="label" for="name">Nama :</label>
+				<input class="inputNama" type="text" id="nama" placeholder="Input Your Name...">
+			</div>
+            <div class="field">
+				<label class="label" for="tempatLahir">Tempat Lahir :</label>
+				<input class="inputTempat" type="text" id="tempatLahir" placeholder="Cth.Jakarta">
+			</div>
+			<div class="field">
+				<label class="label" for="ttl">Tanggal Lahir :</label>
+				<input class="inputTtl" type="date" id="ttl">
+			</div>
+            <div class="field">
+				<label class="label" for="jenisKelamin">Jenis Kelamin : </label>
+                <input type="radio" id="male" class="jenisKelamin" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" class="jenisKelamin" name="gender" value="female">
+                <label for="female">Female</label>
+            </div>
+            <br>
+            <div class="field">
+				<label class="label" for="hobby">Hobby : </label>
+                <input type="checkbox" id="hobby" class="hobby" value="berenang">
+                <label for="berenang"> Berenang</label>
+                <input type="checkbox" id="hobby" class="hobby" value="jogging">
+                <label for="jogging"> Jogging</label>
+                <input type="checkbox" id="hobby" class="hobby" value="bersepeda">
+                <label for="bersepeda"> Bersepeda</label>
+            </div>
+            <br>
+            <div class="field">
+                <label for="agama">Agama :</label>
+                <select name="agama" id="agama">
+                    <option value="Islam">Islam</option>
+                    <option value="Kristen Protestan">Kristen Protestan</option>
+                    <option value="Hindu">Hindu</option>
+                    <option value="Budha">Budha</option>
+                </select>
+            </div>
+            <br>
+            <div class="field">
+				<label class="label" for="alamat">Alamat :</label>
+				<input class="inputAlamat" type="text" id="alamat" placeholder="Input Your Address">
+			</div>
+
+		    <button class="button" id="button" onclick="handleButton()">Submit</button>
+
+        </div>
+        <div class="table">
+            <table id="customers" cellpadding="2" cellspacing="0" border="1">
+                <th class="tNumber">No</th>
+                <th class="tText">Nama</th>
+                <th class="tText">Tempat Lahir</th>
+                <th class="tNumber">Umur</th>
+                <th class="tText">Gender</th>
+                <th class="tText">Hobby</th>
+                <th class="tText">Agama</th>
+                <th class="tText">Alamat</th>
+                <th class="tAction">Action</th>
+                <tbody id="bodyTable"></tbody>
+            </table>
+        </div>
+	</div>
+</body>
+
+</html>
