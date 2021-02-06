@@ -1,6 +1,6 @@
 body {
     padding: 30px;
-    background-image: url(https://www.99.co/blog/indonesia/wp-content/uploads/2017/11/s_un_studio_projectsunder_embargo_temporarily2014_wasl_tower_dubaimaterialrender-890335057.jpgmediaclass-background-xl.07f7adb8a95599dcb70557da25aa6351c3fd0c58.jpg);
+    background-image: url(./downtown.jpg);
     background-size: cover;
 }
 
@@ -11,7 +11,7 @@ body {
     width: 30%;
 }
 
-#customers {
+.table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 65%; 
@@ -91,4 +91,19 @@ button:hover {
     width: 40%;
     padding-left: 6%;
     text-align: center;
+}
+
+.pagination {
+    background-color: blanchedalmond;
+    width: fit-content;
+    padding: 2px;
+}
+
+.page {
+    text-decoration: none;
+    color: black;
+    background-color: blanchedalmond;
+    padding: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
 }

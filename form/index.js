@@ -1,6 +1,7 @@
 var personId = 1;
 const hasil = document.getElementById('bodyTable');
 const button = document.getElementById('button');
+const page = document.getElementsByClassName('page');
 let nama = document.getElementById('nama');
 let tempatLahir = document.getElementById('tempatLahir');
 let ttl = document.getElementById('ttl');
@@ -11,6 +12,8 @@ var agama = document.getElementById("agama");
 let tanggal = 0;
 let people = [];
 const btn = document.getElementById('button');
+var current_halaman = 1;
+var limit = 5;
 
 dummy();
 function handleButton() {
@@ -33,7 +36,7 @@ function handleButton() {
 }
 
 function dummy(){
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 100; i++) {
         let person = {
             id: personId,
             nama: "Anonim",
@@ -48,30 +51,7 @@ function dummy(){
         people.push(person);
         personId++;
     }
-        hasil.innerHTML = '';
-	    console.log(people);
-	    people.forEach(person => {
-		hasil.innerHTML += ` 
-		<tr style="border: 1px solid black">
-			<td class="tdCenter"> ${person.id} </td>
-			<td class="tdCenter"> ${person.nama} </td>
-            <td class="tdCenter"> ${person.tempatLahir},${person.tanggal} </td>
-			<td class="tdCenter"> ${person.ttl} tahun </td>
-            <td class="tdCenter"> ${person.gender} </td>
-            <td class="tdCenter"> ${person.kesukaan} </td>
-            <td class="tdCenter"> ${person.agama} </td>
-            <td class="tdCenter"> ${person.alamat} </td>
-            <td class="tdAction">
-				<button class="buttonedit" type="button" onclick="editClicked(${person.id})">
-					Edit
-				</button>
-				<button class="buttondelete" type="button" onclick="deleteClicked(${person.id})">
-					delete
-				</button>
-			</td>
-		<tr>	
-		`
-	    });  
+	showingDummy(current_halaman);
 }
 
 input = () => {
@@ -91,7 +71,7 @@ input = () => {
     var checkedhobby ="";
     for(var i = 0; hobby[i]; i++){
         if(hobby[i].checked){
-            checkedhobby = checkedhobby + hobby[i].value + ",";
+            checkedhobby = checkedhobby + hobby[i].value + "\n";
         }
     }
 
@@ -120,39 +100,13 @@ input = () => {
 	people.push(person);
 	personId++;
 
-	showData();
+	showingDummy(numOfPages());
+	current_halaman = numOfPages();
 
 	nama.value="";
     tempatLahir.value="";
 	ttl.value="";
     alamat.value="";
-}
-
-showData = () => {
-	hasil.innerHTML = '';
-	console.log(people);
-	people.forEach(person => {
-		hasil.innerHTML += ` 
-		<tr style="border: 1px solid black">
-			<td class="tdCenter"> ${person.id} </td>
-			<td class="tdCenter"> ${person.nama} </td>
-            <td class="tdCenter"> ${person.tempatLahir},${person.tanggal} </td>
-			<td class="tdCenter"> ${person.ttl} tahun </td>
-            <td class="tdCenter"> ${person.gender} </td>
-            <td class="tdCenter"> ${person.kesukaan} </td>
-            <td class="tdCenter"> ${person.agama} </td>
-            <td class="tdCenter"> ${person.alamat} </td>
-            <td class="tdAction">
-				<button class="buttonedit" type="button" onclick="editClicked(${person.id})">
-					Edit
-				</button>
-				<button class="buttondelete" type="button" onclick="deleteClicked(${person.id})">
-					Delete
-				</button>
-			</td>
-		<tr>	
-		`
-	});
 }
 
 deleteClicked = (id) => {
@@ -165,7 +119,7 @@ deleteClicked = (id) => {
 			return person.id != id
 		})
 	}
-	showData();
+	showingDummy(current_halaman);
 }
 
 editClicked = (id) => {
@@ -203,7 +157,7 @@ updateData = (id) => {
     var checkedhobby ="";
     for(var i = 0; hobby[i]; i++){
         if(hobby[i].checked){
-            checkedhobby = checkedhobby + hobby[i].value + ",";
+            checkedhobby = checkedhobby + hobby[i].value + "\n";
         }
     }
 
@@ -233,7 +187,7 @@ updateData = (id) => {
 	people.splice(id, 1, orang);// orang , 1, 
 	btn.removeAttribute("data-type");
 	btn.innerHTML ="Submit";
-	showData();
+	showingDummy(current_halaman);
 	
 
 	nama.value="";
@@ -246,4 +200,77 @@ updateData = (id) => {
 	// // id.value = personEdited.id;
 
 	// btn.innerHTML = "Update";
+}
+
+function prevPage() {
+	console.log('masuk prev Page');
+	if(current_halaman > 1) {
+		current_halaman--;
+		showingDummy(current_halaman);
+	}
+	console.log(current_halaman);
+}
+
+function nextPage() {
+	console.log('masuk next Page');
+	if(current_halaman < numOfPages()) {
+		current_halaman++;
+		showingDummy(current_halaman);
+	}
+	console.log(current_halaman);
+}
+
+function showingDummy(page) {
+	var previous = document.getElementById('previous');
+	var next = document.getElementById('next');
+	var page_span = document.getElementById('page');
+
+	//validate this page
+	if (page < 1) {
+		page = 1;
+	} 
+	else if (page > numOfPages()) {
+		page = numOfPages();
+	}
+
+	hasil.innerHTML = '';
+	for (let j = (page-1) * limit; j < (page * limit) && j < people.length; j++) {
+		hasil.innerHTML += ` 
+		<tr style="border: 1px solid black">
+			<td class="tdCenter"> ${people[j].id} </td>
+			<td class="tdCenter"> ${people[j].nama} </td>
+            <td class="tdCenter"> ${people[j].tempatLahir},${people[j].tanggal} </td>
+			<td class="tdCenter"> ${people[j].ttl} tahun </td>
+            <td class="tdCenter"> ${people[j].gender} </td>
+            <td class="tdCenter"> ${people[j].kesukaan} </td>
+            <td class="tdCenter"> ${people[j].agama} </td>
+            <td class="tdCenter"> ${people[j].alamat} </td>
+            <td class="tdAction">
+				<button class="buttonedit" type="button" onclick="editClicked(${people[j].id})">
+					Edit
+				</button>
+				<button class="buttondelete" type="button" onclick="deleteClicked(${people[j].id})">
+					delete
+				</button>
+			</td>
+		<tr>	
+		`
+	}
+	page_span.innerHTML = page + "/" +numOfPages();
+
+	if(page == 1) {
+		previous.style.visibility = "hidden";
+	} else {
+		previous.style.visibility = "visible";
+	}
+
+	if(page == numOfPages()) {
+		next.style.visibility = "hidden";
+	} else {
+		next.style.visibility = "visible";
+	}
+}
+
+function numOfPages() {
+	return Math.ceil(people.length / limit);
 }

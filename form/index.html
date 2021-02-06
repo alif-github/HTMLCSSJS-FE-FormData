@@ -28,19 +28,19 @@
 			</div>
             <div class="field">
 				<label class="label" for="jenisKelamin">Jenis Kelamin : </label>
-                <input type="radio" id="male" class="jenisKelamin" name="gender" value="male">
+                <input type="radio" id="male" class="jenisKelamin" name="gender" value="Male">
                 <label for="male">Male</label>
-                <input type="radio" id="female" class="jenisKelamin" name="gender" value="female">
+                <input type="radio" id="female" class="jenisKelamin" name="gender" value="Female">
                 <label for="female">Female</label>
             </div>
             <br>
             <div class="field">
 				<label class="label" for="hobby">Hobby : </label>
-                <input type="checkbox" id="hobby" class="hobby" value="berenang">
+                <input type="checkbox" id="hobby" class="hobby" value="Berenang">
                 <label for="berenang"> Berenang</label>
-                <input type="checkbox" id="hobby" class="hobby" value="jogging">
+                <input type="checkbox" id="hobby" class="hobby" value="Jogging">
                 <label for="jogging"> Jogging</label>
-                <input type="checkbox" id="hobby" class="hobby" value="bersepeda">
+                <input type="checkbox" id="hobby" class="hobby" value="Bersepeda">
                 <label for="bersepeda"> Bersepeda</label>
             </div>
             <br>
@@ -64,7 +64,7 @@
 
         </div>
         <div class="table">
-            <table id="customers" cellpadding="2" cellspacing="0" border="1">
+            <table id="customers" cellspacing="0" border="1">
                 <th class="tNumber">ID</th>
                 <th class="tText">Nama</th>
                 <th class="tText">Tempat Lahir</th>
@@ -76,6 +76,12 @@
                 <th class="tAction">Action</th>
                 <tbody class="bodyFillTable" id="bodyTable"></tbody>
             </table>
+            <br>
+            <div class="pagination">
+                <a href="#" class="page" id="previous" onclick="prevPage();return false">prev</a>
+                <a href="#" class="page" id="next" onclick="nextPage();return false">next</a>
+                | page : <span id="page"></span>
+            </div>
         </div>
 	</div>
 </body>
