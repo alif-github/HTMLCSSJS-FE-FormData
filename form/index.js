@@ -14,8 +14,10 @@ let people = [];
 const btn = document.getElementById('button');
 var current_halaman = 1;
 var limit = 5;
+var nowPage = document.getElementById('nowPage');
 
 dummy();
+init();
 function handleButton() {
 
 	console.log("Handle");
@@ -202,12 +204,20 @@ updateData = (id) => {
 	// btn.innerHTML = "Update";
 }
 
+function init() {
+	previous.innerHTML = current_halaman;
+	next.innerHTML = current_halaman + 1;
+}
+
 function prevPage() {
 	console.log('masuk prev Page');
 	if(current_halaman > 1) {
 		current_halaman--;
+		previous.innerHTML = current_halaman - 1;
+		next.innerHTML = current_halaman + 1;
 		showingDummy(current_halaman);
 	}
+	nowPage.innerHTML = current_halaman;
 	console.log(current_halaman);
 }
 
@@ -215,8 +225,11 @@ function nextPage() {
 	console.log('masuk next Page');
 	if(current_halaman < numOfPages()) {
 		current_halaman++;
+		next.innerHTML = current_halaman + 1;
+		previous.innerHTML = current_halaman - 1;
 		showingDummy(current_halaman);
 	}
+	nowPage.innerHTML = current_halaman;
 	console.log(current_halaman);
 }
 
