@@ -65,15 +65,23 @@
         </div>
         <div class="table">
             <table id="customers" cellspacing="0" border="1">
-                <th class="tNumber">ID</th>
-                <th class="tText">Nama</th>
-                <th class="tText">Tempat Lahir</th>
-                <th class="tNumber">Umur</th>
-                <th class="tText">Gender</th>
-                <th class="tText">Hobby</th>
-                <th class="tText">Agama</th>
-                <th class="tText">Alamat</th>
-                <th class="tAction">Action</th>
+                <tr>
+                    <th colspan="2">Cari:</th>
+                    <th colspan="7">
+                        <input type="text" id="inputFind" onkeyup="findPerson()" placeholder="Search for names.." title="Type in a name">
+                    </th>
+                </tr>
+                <tr>
+                    <th class="tNumber">ID</th>
+                    <th class="tText">Nama</th>
+                    <th class="tText">Tempat Lahir</th>
+                    <th class="tNumber">Umur</th>
+                    <th class="tText">Gender</th>
+                    <th class="tText">Hobby</th>
+                    <th class="tText">Agama</th>
+                    <th class="tText">Alamat</th>
+                    <th class="tAction">Action</th>
+                </tr>
                 <tbody class="bodyFillTable" id="bodyTable"></tbody>
             </table>
             <br>
