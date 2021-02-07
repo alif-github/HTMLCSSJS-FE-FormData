@@ -85,12 +85,14 @@ button:hover {
     width: 30%;
     padding-left: 6%;
     text-align: center;
+    font-size: xx-small;
 }
 
 .buttondelete {
     width: 40%;
     padding-left: 6%;
     text-align: center;
+    font-size: xx-small;
 }
 
 .pagination {
@@ -107,6 +109,16 @@ button:hover {
     margin-left: 2px;
     margin-right: 2px;
 }
+
+.page:hover {
+    text-decoration: none;
+    color: black;
+    background-color: chartreuse;
+    padding: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
 #nowPage {
     background-color: chartreuse;
 }

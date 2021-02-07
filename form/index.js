@@ -38,7 +38,7 @@ function handleButton() {
 }
 
 function dummy(){
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
         let person = {
             id: personId,
             nama: "Anonim",
@@ -105,6 +105,13 @@ input = () => {
 	showingDummy(numOfPages());
 	current_halaman = numOfPages();
 
+	next.innerHTML = current_halaman;
+	previous.innerHTML = current_halaman - 1;
+	nowPage.innerHTML = current_halaman;
+
+	console.log(people.length);
+	console.log((people.length) % limit);
+
 	nama.value="";
     tempatLahir.value="";
 	ttl.value="";
@@ -122,6 +129,16 @@ deleteClicked = (id) => {
 		})
 	}
 	showingDummy(current_halaman);
+
+	console.log(current_halaman);
+	console.log("length array", people.length)
+
+	if(((people.length)+1) % limit == 1) {
+		console.log("Masuk sini")
+		next.innerHTML = current_halaman - 1;
+		previous.innerHTML = current_halaman - 2;
+		nowPage.innerHTML = current_halaman - 1;
+	}
 }
 
 editClicked = (id) => {
@@ -207,6 +224,7 @@ updateData = (id) => {
 function init() {
 	previous.innerHTML = current_halaman;
 	next.innerHTML = current_halaman + 1;
+	nowPage.innerHTML = current_halaman;
 }
 
 function prevPage() {
@@ -249,10 +267,10 @@ function showingDummy(page) {
 	hasil.innerHTML = '';
 	for (let j = (page-1) * limit; j < (page * limit) && j < people.length; j++) {
 		hasil.innerHTML += ` 
-		<tr style="border: 1px solid black">
+		<tr style="border: 1px solid black" class="trFill">
 			<td class="tdCenter"> ${people[j].id} </td>
 			<td class="tdCenter"> ${people[j].nama} </td>
-            <td class="tdCenter"> ${people[j].tempatLahir},${people[j].tanggal} </td>
+            <td class="tdCenter"> ${people[j].tempatLahir}, ${people[j].tanggal} </td>
 			<td class="tdCenter"> ${people[j].ttl} tahun </td>
             <td class="tdCenter"> ${people[j].gender} </td>
             <td class="tdCenter"> ${people[j].kesukaan} </td>
@@ -286,4 +304,37 @@ function showingDummy(page) {
 
 function numOfPages() {
 	return Math.ceil(people.length / limit);
+}
+
+function findPerson() {
+	var inputFind = document.getElementById('inputFind');
+	var filter = inputFind.value;
+	
+	console.log(filter);
+	hasil.innerHTML = '';
+	for (let j = 0; j < people.length; j++) {
+		if (people[j].nama.indexOf(filter) > -1) {
+			console.log("jumlahnya ada ", people[j].nama.indexOf(filter))
+			hasil.innerHTML += ` 
+			<tr style="border: 1px solid black" class="trFill">
+				<td class="tdCenter"> ${people[j].id} </td>
+				<td class="tdCenter"> ${people[j].nama} </td>
+				<td class="tdCenter"> ${people[j].tempatLahir}, ${people[j].tanggal} </td>
+				<td class="tdCenter"> ${people[j].ttl} tahun </td>
+				<td class="tdCenter"> ${people[j].gender} </td>
+				<td class="tdCenter"> ${people[j].kesukaan} </td>
+				<td class="tdCenter"> ${people[j].agama} </td>
+				<td class="tdCenter"> ${people[j].alamat} </td>
+				<td class="tdAction">
+					<button class="buttonedit" type="button" onclick="editClicked(${people[j].id})">
+						Edit
+					</button>
+					<button class="buttondelete" type="button" onclick="deleteClicked(${people[j].id})">
+						delete
+					</button>
+				</td>
+			<tr>	
+			`
+		}
+	}
 }
