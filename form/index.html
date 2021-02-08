@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<title>Form Validation JavaScript</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="index.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Form Validation JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="index.js" defer></script>
 </head>
+
 <body class="body">
-	<div class="container">
+    <div class="container">
         <div>
             <center>
-            <h3>Data Masyarakat Kp. Padepokan Bango</h3>
+                <h3>Data Masyarakat Kp. Padepokan Bango</h3>
             </center>
             <hr>
         </div>
-		<div class="form">
-			<div class="field">
-				<label class="label" for="name">Nama :</label>
-				<input class="inputNama" type="text" id="nama" placeholder="Input Your Name...">
-			</div>
+        <div class="form">
             <div class="field">
-				<label class="label" for="tempatLahir">Tempat Lahir :</label>
-				<input class="inputTempat" type="text" id="tempatLahir" placeholder="Cth.Jakarta">
-			</div>
-			<div class="field">
-				<label class="label" for="ttl">Tanggal Lahir :</label>
-				<input class="inputTtl" type="date" id="ttl">
-			</div>
+                <label class="label" for="name">Nama :</label>
+                <input class="inputNama" type="text" id="nama" placeholder="Input Your Name...">
+            </div>
             <div class="field">
-				<label class="label" for="jenisKelamin">Jenis Kelamin : </label>
+                <label class="label" for="tempatLahir">Tempat Lahir :</label>
+                <input class="inputTempat" type="text" id="tempatLahir" placeholder="Cth.Jakarta">
+            </div>
+            <div class="field">
+                <label class="label" for="ttl">Tanggal Lahir :</label>
+                <input class="inputTtl" type="date" id="ttl">
+            </div>
+            <div class="field">
+                <label class="label" for="jenisKelamin">Jenis Kelamin : </label>
                 <input type="radio" id="male" class="jenisKelamin" name="gender" value="Male">
                 <label for="male">Male</label>
                 <input type="radio" id="female" class="jenisKelamin" name="gender" value="Female">
@@ -36,7 +39,7 @@
             </div>
             <br>
             <div class="field">
-				<label class="label" for="hobby">Hobby : </label>
+                <label class="label" for="hobby">Hobby : </label>
                 <input type="checkbox" id="hobby" class="hobby" value="Berenang">
                 <label for="berenang"> Berenang</label>
                 <input type="checkbox" id="hobby" class="hobby" value="Jogging">
@@ -47,7 +50,8 @@
             <br>
             <div class="field">
                 <label for="agama">Agama :</label>
-                <select class="opsi-select form-select form-select-sm" aria-label=".form-select-sm example" name="agama" id="agama">
+                <select class="opsi-select form-select form-select-sm" aria-label=".form-select-sm example" name="agama"
+                    id="agama">
                     <option value="-">-</option>
                     <option value="Islam">Islam</option>
                     <option value="Kristen Protestan">Kristen Protestan</option>
@@ -56,11 +60,11 @@
                 </select>
             </div>
             <div class="field">
-				<label class="label" for="alamat">Alamat :</label>
-				<input class="inputAlamat" type="text" id="alamat" placeholder="Input Your Address">
-			</div>
+                <label class="label" for="alamat">Alamat :</label>
+                <input class="inputAlamat" type="text" id="alamat" placeholder="Input Your Address">
+            </div>
 
-		    <button class="button" id="button" onclick="handleButton()">Submit</button>
+            <button class="button" id="button" onclick="handleButton()">Submit</button>
 
         </div>
         <div class="table">
@@ -68,7 +72,8 @@
                 <tr>
                     <th colspan="2">Cari:</th>
                     <th colspan="7">
-                        <input type="text" id="inputFind" onkeyup="findPerson()" placeholder="Search for names.." title="Type in a name">
+                        <input type="text" id="inputFind" onkeyup="findPerson()" placeholder="Search for names.."
+                            title="Type in a name">
                     </th>
                 </tr>
                 <tr>
@@ -92,7 +97,7 @@
                 | page : <span id="page"></span>
             </div>
         </div>
-	</div>
+    </div>
 </body>
 
 </html>

@@ -313,7 +313,8 @@ function findPerson() {
 	console.log(filter);
 	hasil.innerHTML = '';
 	for (let j = 0; j < people.length; j++) {
-		if (people[j].nama.indexOf(filter) > -1) {
+		if (people[j].nama.indexOf(filter) > -1 || people[j].tempatLahir.indexOf(filter) > -1 || people[j].kesukaan.indexOf(filter) > -1 
+		|| people[j].alamat.indexOf(filter) > -1) {
 			console.log("jumlahnya ada ", people[j].nama.indexOf(filter))
 			hasil.innerHTML += ` 
 			<tr style="border: 1px solid black" class="trFill">
