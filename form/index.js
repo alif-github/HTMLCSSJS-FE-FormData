@@ -41,7 +41,7 @@ function dummy(){
     for (let i = 0; i < 50; i++) {
         let person = {
             id: personId,
-            nama: "Anonim",
+            nama: (i+1)+"Anonim"+(i+1),
             tempatLahir: "Jakarta",
             tanggal: "1998-02-15",
             ttl: "22",
